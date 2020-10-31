@@ -1,2 +1,2 @@
 # tomato
-Light-weight Front-end library aiming at simplifying DOM manipulation
+Light-Weight JavaScript ibrary for front-end web applications.
