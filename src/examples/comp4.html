@@ -1,0 +1,15 @@
+<h1>component 4 {{ test }}</h1>
+<h3>total : {{total}}</h3>
+<div for="user of users">
+    <div>
+        <span>{{ user.name }}</span>
+        <span>{{ user.lastname }}</span>
+        <button *onclick="removeUser({{ user }})">remove</button>
+    </div>
+</div>
+
+<style>
+    span {
+        margin: 0px 10px 0px 10px;
+    }
+</style>

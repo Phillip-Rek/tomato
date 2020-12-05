@@ -1,21 +1,29 @@
-import { TomatoComponent } from './library2';
+import { TomatoComponent, Tomato } from './tomato';
 
 export interface Route {
     path: String;
     controller: TomatoComponent | any;
 }
+let masterController: any;
+let routes_: Array<Route>
 export class Router {
     private controller: TomatoComponent | any;
 
     constructor(routes: Route[]) {
-        this.controller = this.getComponentOfCurrentPath(routes)
-        this.renderComponent(this.controller)
+        this.controller = this.getComponentOfCurrentPath(routes);
+        masterController = this.controller;
+        routes_ = routes;
+        this.renderComponent(this.controller);
     }
     private getComponentOfCurrentPath(routes: Route[]) {
         let url = window.location.href;
-        let path = url.substring(url.indexOf("#") + 1);
+        let path: any = url.substring(url.indexOf("#") + 1);
         for (let i = 0; i < routes.length; i++) {
             const route: Route = routes[i];
+
+            /*if (path.startsWith(route.path)) {
+                return route.controller;
+            }*/
             if (path === route.path) {
                 return route.controller;
             }
@@ -36,4 +44,9 @@ export class Router {
             outlet.appendChild(componentEl);
         };
     }
+}
+
+export const changeRoute = (data: any, title: string, path: string) => {
+    history.pushState(data, title, '#' + path);
+    new Tomato([masterController], routes_);
 }

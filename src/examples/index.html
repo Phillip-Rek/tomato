@@ -1,0 +1,52 @@
+<div class="comp1">
+    <h1>App Component</h1>
+    <div for="h of nums">
+        {{ h }}
+    </div>
+    <div if="990 <= 990" style="color: red;">
+        <div for="user of users">
+            <div if="{{users}} === {{users}}" jj="ll">
+                <span>{{ user.name }}</span>
+                <span>{{ user.lastname }}</span>
+                <button *onclick="removeUser({{ user.name }})">remove</button>
+            </div>
+            <div else-if="12 === 12">
+                ELSE IF BLOCK
+            </div>
+            <div else>ELSE BLOCK</div>
+        </div>
+    </div>
+    <div else-if="19 === 19">
+        main else if
+    </div>
+    <div else>
+        main else
+    </div>
+    <div if="19 === 19">
+        TEST
+    </div>
+    <div if="19 === 19">
+        TEST 2<br />
+        <h3>{{ capitalise(users.0.name) }}</h3>
+        <h3>{{ capitalise(users.1.name) }}</h3>
+        <h3>{{ users.0.name === "user_1" && "user_1" || null }}</h3>
+    </div>
+</div>
+<comp2 class="comp2"></comp2>
+<!--<routeroutlet></routeroutlet>  -->
+<style>
+    span {
+        margin: 0px 10px 0px 10px;
+    }
+
+    .comp2,
+    .comp1 {
+        width: 50%;
+    }
+
+    .app {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+</style>
